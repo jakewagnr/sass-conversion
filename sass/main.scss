@@ -1,1 +1,249 @@
-// main SASS file
+@import "variables"; 
+@import "mixins";
+
+/***********************************************
+                NOTES
+light blue  $lblue
+med blue    $mblue
+dark blue   $dblue
+light brown $lbrown
+dark brown  $dbrown
+light grey  $lgrey
+dark grey   $dgrey
+
+                DEFAULTS
+***********************************************/
+
+*{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after,
+    &:before{
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+}
+
+html{
+    font-size: 16px;
+    font-family: $fontsans;
+    line-height: 1.6;
+}
+h1, h2, h3, h4{
+    font-family: $fontserif;
+}
+ul{
+    list-style: none;
+}
+/***********************************************
+                SPECIAL
+***********************************************/
+
+.clearfix:after{
+    display:table;
+    clear: both;
+    content: "";
+}
+
+/***********************************************
+                LAYOUT
+***********************************************/
+.bg-header{
+    background-color: #fff;
+    background-color:$lblue;
+    color: $dgrey;
+    border-bottom:1rem solid $mblue;
+    border-top:1rem solid $dblue;
+    position: relative;
+&:before,
+&:after{
+    content:"";
+    position:absolute;
+    bottom:-1rem;
+    width:30%;
+    height:1rem;
+    background-color: $dblue;
+}
+&:before{
+    left:0;
+}
+&:after{
+    right:0;
+}
+}
+.bg-focal{
+    background-color: $lbrown;
+    color: $dbrown;
+}
+.bg-content1{
+    background-color: #fff;
+    color: $dgrey;
+}
+.bg-content2{
+    background-color: $lblue;
+    color: $dblue;
+}
+.bg-footer{
+    background-color: #fff;
+    color: $lgrey;
+}
+header{
+    width: 400px; /* default */
+    margin: 0 auto;
+    position: relative;
+}
+h1{
+    width: 100%;
+    padding: 0 2rem;
+}
+header nav{
+    width: 100%;
+}
+header nav>ul li{
+    width:100%;
+    float: none;
+}
+section.focal{
+    width: 400px; /* default */
+    margin: 0 auto;
+}
+section.content1{
+    padding: 2rem 0;
+}
+section.content2{
+    @extend section.content1;    
+}
+.row{
+    clear: both;
+}
+.col-2{
+    padding-bottom: 2rem;
+    border-left:1px solid $dblue;
+    margin-bottom: 2rem;
+    @include equalSpaced(2,0);
+}
+footer .col-2:first-child{
+    border-left: 0;
+}
+footer{
+    padding:2rem 0;
+}
+footer p:last-child{
+}
+/***********************************************
+                NAVIGATION
+***********************************************/
+header nav{
+    padding:2rem 0;
+    clear: both;
+}
+header nav>ul>li>a{
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: $dgrey;    
+    font-size: 1.414rem;
+    letter-spacing: 0.25rem;
+    border:1px solid $lgrey; 
+    border-bottom: none;
+    padding:1.0rem 2rem;
+    line-height: 1;
+    background-color: #fff;
+}
+header nav>ul>li>a:hover{
+    font-weight: 700;
+    color:$dbrown;
+}
+
+/***********************************************
+                CONTENT
+***********************************************/
+header h1{
+    color: $dbrown;
+    letter-spacing: 0.1rem;
+    i.fa-lg{
+    display:block;
+    width: 25%;
+    float:left;
+    font-size: 7rem;
+    line-height: 12.7936rem;
+    color: $lbrown;
+    & ~ span{
+    float: right;
+    width: 75%;
+    font-size: 3.998rem;
+    /**
+    2 lines of 3.998 * 1.6 = 12.7936
+    **/
+    padding-left: 1rem;
+    text-align: right;
+}
+}
+}
+.focal h2{
+    font-size: 1.999rem;
+    line-height: 1.2;
+    padding: 2rem 2rem 1rem 2rem;
+}
+.focal .author{
+    font-size: 1rem;
+    padding: 0.2rem 2rem 2rem;
+}
+.content1 { 
+    h3{
+    font-size:1.999rem;
+    padding: 0.2rem 2rem 2rem;
+    i{
+    vertical-align:middle;
+    padding-right: 2rem;
+    p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 2rem;
+}
+}
+}
+}
+.content2 h3{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0.5rem;
+    h4{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0rem;
+    p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 1rem;
+    li{
+    padding: 0.5rem 2rem;
+    font-size: 1.414rem;
+}
+}
+}
+} 
+/***********************************************
+                FOOTER
+***********************************************/
+footer h4{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem;
+    color: $dbrown;
+}
+footer p{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    color: $dgrey;
+}
+footer .fa-circle{
+    color: $dgrey;
+}
+footer h4[lang=de]{
+   display:block;
+}
+footer h4[lang=en],
+footer h4[lang=ar],
+footer h4[lang=ru]{
+    display:none;
+}
+
+ @import "queries";
